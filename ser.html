@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Coconut Property Management | KKG Coco Lanka</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body{
+            background: #f8f8f8;
+            color: #222;
+        }
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        .container{
+            max-width: 1200px;
+            margin: auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* NAVBAR */
+
+        .navbar{
+            width: 100%;
+            padding: 18px 8%;
+            background: rgb(11, 83, 42);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(8px);
+        }
+
+        .logo{
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img{
+            width: 55px;
+            height: 55px;
+            object-fit: cover;
+        }
+
+        .logo h2{
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+        }
+
+        .nav-links{
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-links a{
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover{
+            color: #7CFC00;
+        }
+
+        .nav-btn{
+            padding: 12px 25px;
+            background: #0d5b38;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .nav-btn:hover{
+            background: #083b24;
+            color: white !important;
+        }
+
+        /* HERO SECTION */
+
+        .service-hero{
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-video{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+        }
+
+        .hero-overlay{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.60);
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .service-content h1{
+            font-size: 65px;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .service-content p{
+            max-width: 900px;
+            margin: auto;
+            font-size: 18px;
+            line-height: 1.9;
+            color: #f2f2f2;
+        }
+
+        .service-btn{
+            display: inline-block;
+            margin-top: 35px;
+            padding: 15px 40px;
+            background: #0d5b38;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .service-btn:hover{
+            background: #083b24;
+        }
+
+        /* SECTION TITLE */
+
+        .section-title{
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2{
+            font-size: 42px;
+            color: #0d5b38;
+            margin-bottom: 15px;
+        }
+
+        .section-title p{
+            color: #666;
+            max-width: 750px;
+            margin: auto;
+            line-height: 1.8;
+        }
+
+        /* WHAT WE OFFER */
+
+        .what-we-offer{
+            padding: 100px 0;
+            background: rgb(255, 255, 255);
+        }
+
+        .offer-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .offer-card{
+            background: #fff;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .offer-card:hover{
+            transform: translateY(-8px);
+        }
+
+        .offer-card h3{
+            color: #0d5b38;
+            margin-bottom: 18px;
+            font-size: 24px;
+        }
+
+        .offer-card p{
+            line-height: 1.9;
+            color: #555;
+        }
+
+        /* WHY PARTNER */
+
+        .why-partner{
+            padding: 100px 0;
+            background: #63cb86;
+        }
+
+        .partner-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .partner-card{
+            background: white;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .partner-card:hover{
+            transform: translateY(-8px);
+        }
+
+        .partner-card h3{
+            color: #0d5b38;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .partner-card p{
+            color: #555;
+            line-height: 1.8;
+        }
+
+        /* PROJECTS */
+
+        .projects-section{
+            padding: 100px 0;
+            background: white;
+        }
+
+        .projects-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card{
+            overflow: hidden;
+            border-radius: 14px;
+        }
+
+        .project-card img{
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .project-card:hover img{
+            transform: scale(1.08);
+        }
+
+        /* CONTACT */
+
+        .contact-section{
+            padding: 100px 0;
+            background: #f3f6f4;
+        }
+
+        .contact-box{
+            background: #0d5b38;
+            padding: 70px 40px;
+            border-radius: 16px;
+            text-align: center;
+            color: white;
+        }
+
+        .contact-box h2{
+            font-size: 42px;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p{
+            max-width: 800px;
+            margin: auto;
+            line-height: 1.9;
+            color: #f1f1f1;
+        }
+
+        .contact-details{
+            margin-top: 35px;
+        }
+
+        .contact-details p{
+            font-size: 22px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:900px){
+
+            .navbar{
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 5%;
+            }
+
+            .nav-links{
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 18px;
+            }
+
+            .service-content h1{
+                font-size: 42px;
+            }
+
+            .section-title h2{
+                font-size: 32px;
+            }
+
+            .contact-box h2{
+                font-size: 32px;
+            }
+
+            .service-content p{
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <img src="images/12.webp" alt="Logo">
+
+            <h2>KKG Coco Lanka</h2>
+
+        </div>
+
+        <div class="nav-links">
+
+            <a href="home.html">Home</a>
+            <a href="ab.html">About</a>
+            <a href="pro.html">Products</a>
+            <a href="ser.html">Services</a>
+            <a href="con.php">Contact</a>
+
+            <a href="get.html" class="nav-btn">Request Quote</a>
+
+        </div>
+
+    </nav>
+
+    <!-- HERO SECTION -->
+
+    <section class="service-hero">
+
+        <!-- VIDEO -->
+
+        <video autoplay muted loop playsinline class="hero-video">
+
+            <source src="videos/cocoo.mp4" type="video/mp4">
+
+        </video>
+
+        <!-- OVERLAY -->
+
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+
+            <div class="service-content">
+
+                <h1>Coconut Property Management</h1>
+
+                <p>
+                    At K.K.G Coco Lanka (Pvt) Ltd, we’re not just leasing land —
+                    we’re managing thriving coconut estates. With roots deeply embedded
+                    in Sri Lanka’s Coconut Triangle, our property management services
+                    ensure your land is nurtured, productive, and profitable.
+                </p>
+
+                <a href="con.html" class="service-btn">Learn More</a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHAT WE OFFER -->
+
+    <section class="what-we-offer">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>What We Offer</h2>
+
+                <p>
+                    Professional coconut estate management solutions tailored for long-term
+                    productivity, sustainability, and maximum land value.
+                </p>
+
+            </div>
+
+            <div class="offer-grid">
+
+                <div class="offer-card">
+
+                    <h3>Tailored Estate Planning</h3>
+
+                    <p>
+                        We create customized management plans to maximize productivity,
+                        covering planting cycles, soil health, pest control,
+                        and irrigation techniques.
+                    </p>
+
+                </div>
+
+                <div class="offer-card">
+
+                    <h3>Sustainable Agricultural Practices</h3>
+
+                    <p>
+                        Harnessing eco-conscious and modern approaches,
+                        our processes promote yield enhancement and
+                        environmental stewardship.
+                    </p>
+
+                </div>
+
+                <div class="offer-card">
+
+                    <h3>Agronomic Expertise You Can Trust</h3>
+
+                    <p>
+                        Guided by agronomy professionals, we monitor crop health
+                        and provide proactive solutions for long-term coconut
+                        estate productivity and sustainability.
+                    </p>
+
+                </div>
+
+                <div class="offer-card">
+
+                    <h3>Transparent Lease Management</h3>
+
+                    <p>
+                        Enjoy the certainty of timely payments and
+                        professionally maintained land throughout
+                        the lease period.
+                    </p>
+
+                </div>
+
+                <div class="offer-card">
+
+                    <h3>Strategic Location Advantage</h3>
+
+                    <p>
+                        Operating across Sri Lanka’s Coconut Triangle —
+                        Kurunegala, Gampaha, and Puttalam — we have unmatched
+                        familiarity with local agro-climatic conditions.
+                    </p>
+
+                </div>
+
+                <div class="offer-card">
+
+                    <h3>Long-Term Land Value Growth</h3>
+
+                    <p>
+                        Our management approach focuses on improving soil quality,
+                        estate productivity, and long-term agricultural sustainability.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- WHY PARTNER -->
+
+    <section class="why-partner">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Why Partner With Us?</h2>
+
+            </div>
+
+            <div class="partner-grid">
+
+                <div class="partner-card">
+
+                    <h3>Reliable Income Stream</h3>
+
+                    <p>
+                        Secure and timely lease payments for complete peace of mind.
+                    </p>
+
+                </div>
+
+                <div class="partner-card">
+
+                    <h3>Expert Care & Hassle-Free</h3>
+
+                    <p>
+                        Professional management ensures your land is well maintained
+                        while you enjoy worry-free ownership.
+                    </p>
+
+                </div>
+
+                <div class="partner-card">
+
+                    <h3>Built on Trust</h3>
+
+                    <p>
+                        We value long-term relationships grounded in transparency,
+                        professionalism, and respect.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PROJECTS -->
+
+    <section class="projects-section">
+
+        <div class="container">
+
+            <div class="section-title">
+
+                <h2>Our Projects</h2>
+
+                <p>
+                    Explore our managed coconut estates and sustainable agricultural developments.
+                </p>
+
+            </div>
+
+            <div class="projects-grid">
+
+                <div class="project-card">
+
+                    <img src="images/pl.webp" alt="Project Image">
+
+                </div>
+
+                <div class="project-card">
+
+                    <img src="images/pll.webp" alt="Project Image">
+
+                </div>
+
+                <div class="project-card">
+
+                    <img src="images/plll.webp" alt="Project Image">
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CONTACT -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="container">
+
+            <div class="contact-box">
+
+                <h2>Contact Us</h2>
+
+                <p>
+                    Interested in maximizing your coconut land’s value while enjoying
+                    worry-free ownership? Reach out today.
+                </p>
+
+                <div class="contact-details">
+
+                    <p>Heshan – +94 768 006007</p>
+
+                    <p>Sampath – +94 768 061977</p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
